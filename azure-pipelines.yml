@@ -44,6 +44,12 @@ steps:
     configuration: '$(buildConfiguration)'
     msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload'
 
+- task: BuildInstaller@1
+  inputs:
+    installTaskMode: 'solution'
+    SlnPath: 'AmiKoWindows.sln'
+    VsVersion: 'VS2017'
+
 - task: CmdLine@2
   inputs:
     script: |
