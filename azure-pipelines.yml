@@ -78,6 +78,7 @@ steps:
   inputs:
     platform: 'Arm64'
     msbuildArchitecture: 'arm64'
+    vsVersion: '16.0'
     solution: '$(solution)'
     configuration: '$(buildConfiguration)'
     msbuildArgs: '/p:AppxBundlePlatforms="ARM64" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload'
