@@ -51,11 +51,11 @@ steps:
       copy /y $(downloadGoogleConstants.secureFilePath) $(Build.SourcesDirectory)\AmiKoWindows\Source\GoogleConstants.cs
       choco install windows-sdk-10.0 wixtoolset
 
-- task: PowerShell@2
-  displayName: Download databases
-  inputs:
-    filePath: '.\download.ps1'
-    errorActionPreference: 'continue'
+# - task: PowerShell@2
+#   displayName: Download databases
+#   inputs:
+#     filePath: '.\download.ps1'
+#     errorActionPreference: 'continue'
 
 # - task: VSBuild@1
 #   displayName: MSBuild
