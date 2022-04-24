@@ -42,10 +42,10 @@
 	<!-- <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
 	  <PlatformTarget>X86</PlatformTarget>
 	</PropertyGroup> -->
-	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+	<Target Name="PreBuild" BeforeTargets="BeforeBuild">
 		<Exec Command="$(MSBuildProjectDirectory)\PreBuild.bat $(SolutionDir) Resources.de-CH.resx" />
 	</Target>
-	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	<Target Name="PostBuild" AfterTargets="AfterBuild">
 		<Exec Command="$(MSBuildProjectDirectory)\PostBuild.bat $(SolutionDir) $(OutDir) de" />
 	</Target>
 	<ItemGroup>

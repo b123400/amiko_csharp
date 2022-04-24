@@ -13,7 +13,7 @@ variables:
   solution: '**/*.sln'
   # buildPlatform: 'x86|x64|ARM'
   buildConfiguration: 'Debug'
-  appxPackageDir: '$(build.defaultworkingdirectory)\AppxPackages\\'
+  appxPackageDir: '$(build.defaultworkingdirectory)\AppxPackages\'
 
 steps:
 - task: Cache@2
