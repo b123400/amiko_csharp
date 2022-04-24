@@ -11,8 +11,10 @@
 		<AssemblyName>AmiKo Desitin</AssemblyName>
 		<ApplicationIcon />
 		<StartupObject>AmiKoWindows.Program</StartupObject>
-		<Platforms>x86;x64;arm64</Platforms>
-		<RuntimeIdentifiers>win10-x86;win-x64;win-arm64</RuntimeIdentifiers>
+
+		<!-- <Platforms>x86;x64;arm64</Platforms> -->
+		<!-- <RuntimeIdentifiers>win10-x86;win-x64;win-arm64</RuntimeIdentifiers> -->
+		<Platforms>AnyCPU;x86;x64;arm64</Platforms>
 	</PropertyGroup>
 
 	<PropertyGroup Condition=" '$(Configuration)' == 'Debug' And '$(Log)' == 'Trace' ">
@@ -28,10 +30,6 @@
 	<PropertyGroup>
 		<PlatformTarget>ARM64</PlatformTarget>
 	</PropertyGroup>
-	<PropertyGroup>
-		<EmbeddedResourceUseDependentUponConvention>true</EmbeddedResourceUseDependentUponConvention>
-	</PropertyGroup>
-
 	<!-- <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
 		<PlatformTarget>ARM64</PlatformTarget>
 	</PropertyGroup> -->
@@ -44,7 +42,6 @@
 	<!-- <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
 	  <PlatformTarget>X86</PlatformTarget>
 	</PropertyGroup> -->
-
 	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
 		<Exec Command="$(MSBuildProjectDirectory)\PreBuild.bat $(SolutionDir) Resources.de-CH.resx" />
 	</Target>
@@ -97,22 +94,21 @@
 		<None Update="AmiKo.Config\App.config" />
 	</ItemGroup>
 	<ItemGroup>
-		<!--<EmbeddedResource Update="Properties\Resources.de-CH.resx">
+		<EmbeddedResource Update="Properties\Resources.de-CH.resx">
 			<Generator>PublicResXFileCodeGenerator</Generator>
 			<LastGenOutput>Resources.de-CH.Designer.cs</LastGenOutput>
-			<StronglyTypedFileName>$(IntermediateOutputPath)Resources.de-CH.Designer.cs</StronglyTypedFileName>
+			<StronglyTypedFileName>$(IntermediateOutputPath)\Resources.de-CH.Designer.cs</StronglyTypedFileName>
 			<StronglyTypedLanguage>CSharp</StronglyTypedLanguage>
 			<StronglyTypedNamespace>Microsoft.Windows.PowerShell.ScriptAnalyzer</StronglyTypedNamespace>
 			<StronglyTypedClassName>Resources.de-CH</StronglyTypedClassName>
-		</EmbeddedResource>-->
+		</EmbeddedResource>
 		<EmbeddedResource Update="Properties\Resources.resx">
 			<Generator>PublicResXFileCodeGenerator</Generator>
 			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
-			<StronglyTypedFileName>$(IntermediateOutputPath)Resources.Designer.cs</StronglyTypedFileName>
+			<StronglyTypedFileName>$(IntermediateOutputPath)\Resources.Designer.cs</StronglyTypedFileName>
 			<StronglyTypedLanguage>CSharp</StronglyTypedLanguage>
 			<StronglyTypedNamespace>Microsoft.Windows.PowerShell.ScriptAnalyzer</StronglyTypedNamespace>
 			<StronglyTypedClassName>Resources</StronglyTypedClassName>
-			<LogicalName>$(RootNamespace).Properties.Resources.resources</LogicalName> 
 		</EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup>
