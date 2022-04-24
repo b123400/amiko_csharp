@@ -112,6 +112,7 @@
 			<StronglyTypedLanguage>CSharp</StronglyTypedLanguage>
 			<StronglyTypedNamespace>Microsoft.Windows.PowerShell.ScriptAnalyzer</StronglyTypedNamespace>
 			<StronglyTypedClassName>Resources</StronglyTypedClassName>
+			<LogicalName>$(RootNamespace).Properties.Resources.resources</LogicalName> 
 		</EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup>
