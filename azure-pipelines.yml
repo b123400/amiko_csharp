@@ -11,8 +11,7 @@ pool:
 
 variables:
   solution: '**/*.sln'
-  # buildPlatform: 'x86|x64|ARM'
-  buildConfiguration: 'Debug'
+  buildConfiguration: 'Release'
   appxPackageDir: '$(build.defaultworkingdirectory)\AppxPackages\'
 
 steps:
@@ -57,44 +56,44 @@ steps:
 #     filePath: '.\download.ps1'
 #     errorActionPreference: 'continue'
 
-# - task: VSBuild@1
-#   displayName: MSBuild
-#   inputs:
-#     platform: 'x86'
-#     solution: '$(solution)'
-#     configuration: '$(buildConfiguration)'
-#     msbuildArgs: '/p:AppxBundlePlatforms="x86" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload'
-
-# - task: VSBuild@1
-#   displayName: MSBuild
-#   inputs:
-#     platform: 'x64'
-#     solution: '$(solution)'
-#     configuration: '$(buildConfiguration)'
-#     msbuildArgs: '/p:AppxBundlePlatforms="x64" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload'
+- task: VSBuild@1
+  displayName: MSBuild
+  inputs:
+    platform: 'x86'
+    solution: '$(solution)'
+    configuration: '$(buildConfiguration)'
+    msbuildArgs: '/p:AppxBundlePlatforms="x86" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload'
 
 - task: VSBuild@1
   displayName: MSBuild
   inputs:
-    platform: 'Arm64'
+    platform: 'x64'
+    solution: '$(solution)'
+    configuration: '$(buildConfiguration)'
+    msbuildArgs: '/p:AppxBundlePlatforms="x64" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload'
+
+- task: VSBuild@1
+  displayName: MSBuild
+  inputs:
+    platform: 'ARM64'
     msbuildArchitecture: 'arm64'
     vsVersion: '16.0'
     solution: '$(solution)'
     configuration: '$(buildConfiguration)'
     msbuildArgs: '/p:AppxBundlePlatforms="ARM64" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload'
 
-- task: CmdLine@2
-  displayName: Make Appx
-  inputs:
-    script: |
-      cd .\AmikoWindows\bin\x86\Debug\net5.0-windows10.0.20348.0\
-      dir
-      cd ..\..\..\..\..
-      cd .\AmikoWindows\bin\ARM64\Debug\net5.0-windows10.0.20348.0\
-      dir
-      cd ..\..\..\..\..
-  # "C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x64\MakeAppx.exe" pack /d .\AmikoWindows\bin\ARM64\Debug\net5.0-windows10.0.20348.0\ /p AmikoWindows\bin\AmikoDesitin.appx
-  # "C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x64\MakeAppx.exe" pack /d .\AmikoWindows\bin\Debug\CoMed /p AmikoWindows\bin\Debug\CoMedDesitin.appx
+# - task: CmdLine@2
+#   displayName: Make Appx
+#   inputs:
+#     script: |
+#       cd .\AmikoWindows\bin\x86\Release\net5.0-windows10.0.20348.0\
+#       dir
+#       cd ..\..\..\..\..
+#       cd .\AmikoWindows\bin\ARM64\Release\net5.0-windows10.0.20348.0\
+#       dir
+#       cd ..\..\..\..\..
+#   # "C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x64\MakeAppx.exe" pack /d .\AmikoWindows\bin\ARM64\Release\net5.0-windows10.0.20348.0\ /p AmikoWindows\bin\AmikoDesitin.appx
+#   # "C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x64\MakeAppx.exe" pack /d .\AmikoWindows\bin\Release\CoMed /p AmikoWindows\bin\Release\CoMedDesitin.appx
 
 # - task: PowerShell@2
 #   displayName: Make MSI
