@@ -24,28 +24,36 @@
 		<DefineConstants>COMED</DefineConstants>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+		<PlatformTarget>ARM64</PlatformTarget>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+		<PlatformTarget>X86</PlatformTarget>
+	</PropertyGroup>
+
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
 		<PlatformTarget>ARM64</PlatformTarget>
+		<OutputPath>bin\Release\ARM64\CoMed\</OutputPath>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
 		<PlatformTarget>X86</PlatformTarget>
+		<OutputPath>bin\Release\X86\CoMed\</OutputPath>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
 		<PlatformTarget>X64</PlatformTarget>
+		<OutputPath>bin\Release\X64\CoMed\</OutputPath>
 	</PropertyGroup>
 
 	<PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
 		<DebugSymbols>true</DebugSymbols>
 		<DebugType>full</DebugType>
 		<Optimize>false</Optimize>
-		<OutputPath>bin\Debug\CoMed\</OutputPath>
 		<ErrorReport>prompt</ErrorReport>
 		<WarningLevel>4</WarningLevel>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
 		<DebugType>pdbonly</DebugType>
 		<Optimize>true</Optimize>
-		<OutputPath>bin\Release\CoMed\</OutputPath>
 		<ErrorReport>prompt</ErrorReport>
 		<WarningLevel>4</WarningLevel>
 		<Prefer32Bit>false</Prefer32Bit>

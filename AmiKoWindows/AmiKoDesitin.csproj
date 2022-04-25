@@ -34,26 +34,27 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
 		<PlatformTarget>ARM64</PlatformTarget>
+		<OutputPath>bin\Release\ARM64\AmiKo\</OutputPath>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
 		<PlatformTarget>X86</PlatformTarget>
+		<OutputPath>bin\Release\X86\AmiKo\</OutputPath>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
 		<PlatformTarget>X64</PlatformTarget>
+		<OutputPath>bin\Release\X64\AmiKo\</OutputPath>
 	</PropertyGroup>
 
 	<PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
 		<DebugSymbols>true</DebugSymbols>
 		<DebugType>full</DebugType>
 		<Optimize>false</Optimize>
-		<OutputPath>bin\Debug\AmiKo\</OutputPath>
 		<ErrorReport>prompt</ErrorReport>
 		<WarningLevel>4</WarningLevel>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
 		<DebugType>pdbonly</DebugType>
 		<Optimize>true</Optimize>
-		<OutputPath>bin\Release\AmiKo\</OutputPath>
 		<ErrorReport>prompt</ErrorReport>
 		<WarningLevel>4</WarningLevel>
 		<Prefer32Bit>false</Prefer32Bit>
