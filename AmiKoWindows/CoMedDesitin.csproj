@@ -63,7 +63,7 @@
 		<Exec Command="$(MSBuildProjectDirectory)\PreBuild.bat $(SolutionDir) Resources.fr-CH.resx" />
 	</Target>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="$(MSBuildProjectDirectory)\PostBuild.bat $(SolutionDir) $(OutDir) fr" />
+		<Exec Command="$(MSBuildProjectDirectory)\PostBuild.bat $(SolutionDir) $(OutDir) fr $(Platform)" />
 	</Target>
 	<ItemGroup>
 		<PackageReference Include="EntityFramework">
